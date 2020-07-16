@@ -38,7 +38,12 @@ class Utils {
     }).join('\n\n\n');
     fs.writeFileSync(configPath, content, {encoding:'utf8',flag:'w'});
     await executeCommand('sudo nginx -t');
+    return true;
+  }
+
+  static async restartNginx() {
     await executeCommand('sudo systemctl restart nginx');
+    return true;
   }
 }
 

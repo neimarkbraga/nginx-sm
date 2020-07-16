@@ -95,6 +95,8 @@ app.post('/api/site', async(req, res, next) => {
     await res.json({
       message: 'Site has been successfully added.'
     });
+
+    await Utils.restartNginx();
   }
   catch (e) {
     next(e);
@@ -121,6 +123,8 @@ app.delete('/api/site/:name', async(req, res, next) => {
       count: count,
       message: `Site${count > 1 ? 's were' : ' was'} successfully deleted`
     });
+
+    await Utils.restartNginx();
   }
   catch (e) {
     next(e);
