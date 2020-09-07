@@ -11,6 +11,7 @@ class Utils {
       `  listen 80;`,
       `  listen [::]:80;`,
       `  server_name ${serverName};`,
+      `  client_max_body_size 50M;`,
       ``,
       `  location / {`,
       `    # Http Proxy`,
